@@ -2,13 +2,13 @@
 <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c543.png" height="128"/>
 </p>
 <p align="center">
-<a href="https://github.com/dngda/bot-whatsapp"><img title="Whatsapp-Bot" src="https://img.shields.io/badge/Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
+<a href="https://github.com/nuraziz0404/botwa-2.0"><img title="Whatsapp-Bot" src="https://img.shields.io/badge/Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
 <p align="center">
 <a href="https://github.com/dngda/"><img title="Author" src="https://img.shields.io/badge/Github-dngda-blue?style=for-the-badge&logo=github"></a>
 </p>
 
-## SeroBot
+## CRazyz BOT
 
 This project require NodeJS v12
 
@@ -16,7 +16,7 @@ This project require NodeJS v12
 Clone this project
 
 ```bash
-> git clone https://github.com/dngda/bot-whatsapp
+> git clone https://github.com/nuraziz0404/botwa-2.0
 > cd bot-whatsapp
 ```
 

@@ -6,15 +6,15 @@
   "scripts": {
     "start": "node index"
   },
-  "author": "Danang D A",
+  "author": "Aziz",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dngda/bot-whatsapp.git"
+    "url": "git+https://github.com/nuraziz0404/botwa-2.0.git"
   },
   "bugs": {
-    "url": "https://github.com/dngda/bot-whatsapp/issues"
+    "url": "https://github.com/nuraziz0404/botwa-2.0/issues"
   },
-  "homepage": "https://github.com/dngda/bot-whatsapp",
+  "homepage": "https://github.com/nuraziz0404/botwa-2.0",
   "license": "ISC",
   "dependencies": {
     "@open-wa/wa-automate": "^3.1.0",

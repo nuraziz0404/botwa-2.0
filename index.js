@@ -8,7 +8,7 @@ const start = (client = new Client()) => {
     console.log(color(figlet.textSync('----------------', { horizontalLayout: 'default' })))
     console.log(color(figlet.textSync('   BOT-WA', { font: 'Ghost', horizontalLayout: 'default' })))
     console.log(color(figlet.textSync('----------------', { horizontalLayout: 'default' })))
-    console.log(color('[DEV]'), color('Danang', 'yellow'))
+    console.log(color('[DEV]'), color('Aziz', 'yellow'))
     console.log(color('[~>>]'), color('BOT Started!', 'green'))
     console.log(color('[>..]'), color('Hidden Command: /ban /bc /leaveall /clearall /nekopoi', 'green'))
 
@@ -36,7 +36,7 @@ const start = (client = new Client()) => {
 	    })
 	    } else {
         await client.simulateTyping(chat.id, true).then(async () => {
-          await client.sendText(chat.id, `Hai minna~, Im SeroBot. To find out the commands on this bot type ${prefix}menu`)
+          await client.sendText(chat.id, `Hai minna~, Im CRazyz BOT. To find out the commands on this bot type ${prefix}menu`)
         })
 	    }
 	}
