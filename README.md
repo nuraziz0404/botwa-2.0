@@ -5,7 +5,7 @@
 <a href="https://github.com/nuraziz0404/botwa-2.0"><img title="Whatsapp-Bot" src="https://img.shields.io/badge/Whatsapp Bot-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
 <p align="center">
-<a href="https://github.com/dngda/"><img title="Author" src="https://img.shields.io/badge/Github-dngda-blue?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/nuraziz0404/"><img title="Author" src="https://img.shields.io/badge/Github-Aziz-blue?style=for-the-badge&amp;logo=github"></a>
 </p>
 
 ## CRazyz BOT
@@ -17,7 +17,7 @@ Clone this project
 
 ```bash
 > git clone https://github.com/nuraziz0404/botwa-2.0
-> cd bot-whatsapp
+> cd botwa-2.0
 ```
 
 Install the dependencies:
@@ -121,4 +121,4 @@ Fix Stuck on linux, install google chrome stable:
 - [Open-WA-Automate](https://github.com/open-wa/wa-automate-nodejs)
 - [YogaSakti](https://github.com/YogaSakti/imageToSticker)
 - [ArugaZ](https://github.com/ArugaZ/whatsapp-bot)
-- [Aziz0404](https://github.com/nuraziz0404/botwa)
+- [Danang](https://github.com/dngda/bot-whatsapp)
