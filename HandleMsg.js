@@ -616,7 +616,8 @@ module.exports = HandleMsg = async (client, message) => {
                                 await client.reply(from, `Video ditemukan\n\nJudul ${res.data.title}\n\nSabar file sedang dikirim`, id)
                                 var link = `${res.data.result[1].link}.mp4`
                                 console.log(link)
-                                client.sendFileFromUrl(from, link, id)
+                                var mp4name = `${res.data.title}.mp4`
+                                client.sendFileFromUrl(from, link, filename: mp4name, id)
 
                                 //var time = moment(t * 1000).format('mm')
                                 //var dir = `./media/ytmp4/${time}.mp4`
