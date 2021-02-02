@@ -60,6 +60,7 @@ After running it you need to scan the QR
 - nulis
 - shortlink
 - hilih
+- ytmp4 (beta)
 - ytmp3 (beta)
 - play (beta)
 - tts _atau_ say

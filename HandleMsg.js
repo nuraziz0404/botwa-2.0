@@ -272,6 +272,29 @@ module.exports = HandleMsg = async (client, message) => {
                         }
                         break
 
+                    case 'tes':
+                        if (isMedia || isQuotedVideo) {
+                            if (mimetype === 'video/mp4' && message.duration < 10) {
+                                var mediaData = await decryptMedia(message, uaOverride)
+                                client.reply(from, '[WAIT] Sedang diproses⏳ silakan tunggu ± 1 min!', id)
+                                var filename = `./media/stickergif.${mimetype.split('/')[1]}`
+                                await fs.writeFileSync(filename, mediaData)
+                                sendMp4AsSticker(from, filename, id)
+                                //await exec(`gify ${filename} ./media/stickergf.gif --fps=30 --scale=240:240`, async function (error, stdout, stderr) {
+                                //    var gif = await fs.readFileSync('./media/stickergf.gif', { encoding: 'base64' })
+                                //    await client.sendImageAsSticker(from, `data:image/gif;base64,${gif.toString('base64')}`, stickerMetadata)
+                                //        .catch(() => {
+                                //            client.reply(from, 'Maaf filenya terlalu besar!', id)
+                                //        })
+                                //})
+                            } else {
+                                client.reply(from, `[❗] Kirim video dengan caption *${prefix}stickergif* max 10 sec!`, id)
+                            }
+                        } else {
+                            client.reply(from, `[❗] Kirim video dengan caption *${prefix}stickergif*`, id)
+                        }
+                        break
+
                     case 'stickergif':
                     case 'stikergif':
                         if (isMedia || isQuotedVideo) {
@@ -618,21 +641,6 @@ module.exports = HandleMsg = async (client, message) => {
                                 console.log(link)
                                 var mp4name = `${res.data.title}.mp4`
                                 client.sendFileFromUrl(from, link, mp4name, id)
-
-                                //var time = moment(t * 1000).format('mm')
-                                //var dir = `./media/ytmp4/${time}.mp4`
-                                //async function mp4() {
-                                //    console.log('Proses download sedang berlangsung')
-                                //    await download(link, dir, function (err) {
-                                //        if (err) {
-                                //            console.error(err);
-                                //        } else {
-                                //            console.log('Download Complete')
-                                //                .then(console.log(`Audio Processed for ${processTime(t, moment())} Second`))
-                                //        }
-                                //    });
-                                //}
-                                //mp4()
 
                             })
                         break
