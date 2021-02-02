@@ -324,17 +324,17 @@ module.exports = HandleMsg = async (client, message) => {
                         }
                         break
                         case 'logoph':
-                            if (args.length === 1) return aziz.reply(from, `Kirim perintah *${prefix}logoph [ |Teks1|Teks2 ]*,\n\n contoh : *${prefix}logoph |GIT| HUB*`, id)
+                            if (args.length === 1) return client.reply(from, `Kirim perintah *${prefix}logoph [ |Teks1|Teks2 ]*,\n\n contoh : *${prefix}logoph |GIT| HUB*`, id)
                             argz = body.trim().split('|')
                             if (argz.length >= 2) {
-                                aziz.reply(from, `sabar brok eug proses dolo....`, id)
+                                client.reply(from, `sabar brok eug proses dolo....`, id)
                                 const lpornhub = argz[1]
                                 const lpornhub2 = argz[2]   
-                                if (lpornhub > 10) return aziz.reply(from, '*Teks1 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
-                                if (lpornhub2 > 10) return aziz.reply(from, '*Teks2 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
-                                aziz.sendFileFromUrl(from, `https://lol-human.herokuapp.com/api/textprome/pornhub/${lpornhub}/${lpornhub2}`)
+                                if (lpornhub > 10) return client.reply(from, '*Teks1 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+                                if (lpornhub2 > 10) return client.reply(from, '*Teks2 Terlalu Panjang!*\n_Maksimal 10 huruf!_', id)
+                                client.sendFileFromUrl(from, `https://lol-human.herokuapp.com/api/textprome/pornhub/${lpornhub}/${lpornhub2}`)
                             } else {
-                                await aziz.reply(from, `Wrong Format!\n[❗] Kirim perintah *${prefix}logoph [ |Teks1|Teks2 ]*,\n\n contoh : *${prefix}logoph |GIT| HUB*`, id)
+                                await client.reply(from, `Wrong Format!\n[❗] Kirim perintah *${prefix}logoph [ |Teks1|Teks2 ]*,\n\n contoh : *${prefix}logoph |GIT| HUB*`, id)
                             }
                             break
 
