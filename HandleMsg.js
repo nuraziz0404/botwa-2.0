@@ -96,7 +96,7 @@ module.exports = HandleMsg = async (client, message) => {
         const AntiStickerSpam = antisticker.includes(chatId)
         const stickermsg = message.type === 'sticker'
         const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
-        const stickerMetadata = { pack: 'Created with', author: 'SeroBot' }
+        const stickerMetadata = { pack: 'CRazyzBOT', author: pushname }
 
         // Bot Prefix
         body = (type === 'chat' && body.startsWith(prefix)) ? body : ((type === 'image' && caption || type === 'video' && caption) && caption.startsWith(prefix)) ? caption : ''
