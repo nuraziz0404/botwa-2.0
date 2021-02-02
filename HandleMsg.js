@@ -607,6 +607,35 @@ module.exports = HandleMsg = async (client, message) => {
                             })
                         break
 
+                        case 'ytmp4':
+                        if (args.length == 0) return client.reply(from, `Untuk mendownload video dari youtube\nketik: ${prefix}ytmp4 [link_yt]`, id)
+                        const linkmp4 = args[0].replace('https://youtu.be/', '').replace('https://www.youtube.com/watch?v=', '')
+                        axios.get(`https://lol-human.herokuapp.com/api/ytvideo/${linkmp4}`)
+                            .then(async (res) => {
+                                //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
+                                await client.reply(from, `Video ditemukan\n\nJudul ${res.data.title}\n\nSabar file sedang dikirim`, id)
+                                var link = `${res.data.result[1].link}.mp4`
+                                console.log(link)
+
+                                var time = moment(t * 1000).format('mm')
+                                var dir = `./media/ytmp4/${time}.mp4`
+                                async function mp4() {
+                                    console.log('Proses download sedang berlangsung')
+                                    await download(link, dir, function (err) {
+                                        if (err) {
+                                            console.error(err);
+                                        } else {
+                                            console.log('Download Complete')
+                                            client.sendPtt(from, dir, id)
+                                                .then(console.log(`Audio Processed for ${processTime(t, moment())} Second`))
+                                        }
+                                    });
+                                }
+                                mp4()
+
+                            })
+                        break
+
                     case 'artinama':
                         if (args.length == 0) return client.reply(from, `Untuk mengetahui arti nama seseorang\nketik ${prefix}artinama namakamu`, id)
                         rugaapi.artinama(body.slice(10))
