@@ -616,22 +616,22 @@ module.exports = HandleMsg = async (client, message) => {
                                 await client.reply(from, `Video ditemukan\n\nJudul ${res.data.title}\n\nSabar file sedang dikirim`, id)
                                 var link = `${res.data.result[1].link}.mp4`
                                 console.log(link)
+                                client.sendFileFromUrl(from, link, id)
 
-                                var time = moment(t * 1000).format('mm')
-                                var dir = `./media/ytmp4/${time}.mp4`
-                                async function mp4() {
-                                    console.log('Proses download sedang berlangsung')
-                                    await download(link, dir, function (err) {
-                                        if (err) {
-                                            console.error(err);
-                                        } else {
-                                            console.log('Download Complete')
-                                            client.sendPtt(from, dir, id)
-                                                .then(console.log(`Audio Processed for ${processTime(t, moment())} Second`))
-                                        }
-                                    });
-                                }
-                                mp4()
+                                //var time = moment(t * 1000).format('mm')
+                                //var dir = `./media/ytmp4/${time}.mp4`
+                                //async function mp4() {
+                                //    console.log('Proses download sedang berlangsung')
+                                //    await download(link, dir, function (err) {
+                                //        if (err) {
+                                //            console.error(err);
+                                //        } else {
+                                //            console.log('Download Complete')
+                                //                .then(console.log(`Audio Processed for ${processTime(t, moment())} Second`))
+                                //        }
+                                //    });
+                                //}
+                                //mp4()
 
                             })
                         break
