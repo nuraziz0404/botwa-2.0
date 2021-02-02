@@ -760,7 +760,7 @@ module.exports = HandleMsg = async (client, message) => {
 
                     case 'play'://silahkan kalian custom sendiri jika ada yang ingin diubah
                         if (args.length == 0) return client.reply(from, `Untuk mencari lagu dari youtube\n\nPenggunaan: ${prefix}play judul lagu`, id)
-                        axios.get(`http://arugaz.my.id/api/media/ytsearch?query=${body.slice(6)}`)
+                        axios.get(`http://api.arugaz.my.id/api/media/ytsearch?query=${body.slice(6)}`)
                             .then(async (res) => {
                                 console.log(res.data.result[0].id)
                                 var estimasi = res.data.result[0].duration / 50
@@ -788,12 +788,12 @@ module.exports = HandleMsg = async (client, message) => {
                                 var x = y.replace(/,/g, '.')
 
                                 await client.sendFileFromUrl(from, `${res.data.result[0].thumbnail}`, ``, `Video ditemukan\n\nJudul: ${res.data.result[0].title}\nDurasi: ${durasi}\nUploaded: ${res.data.result[0].uploadDate}\nView: ${x}\n\nsedang dikirim ± ${est} menit`, id)
-                                rugaapi.ytmp3(`https://youtu.be/${res.data.result[0].id}`)
+                                axios.get(`https://lol-human.herokuapp.com/api/ytaudio/${res.data.result[0].id}`)
                                     .then(async (res) => {
-                                        if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
+                                        //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
                                         //await client.sendFileFromUrl(from, `${res.getImages}`, '', `Lagu ditemukan\n\nJudul ${res.titleInfo}\n\nSabar lagi dikirim`, id)
-                                        console.log(res.getAudio)
-                                        var link = `${res.getAudio}.mp3`
+                                        console.log(res.data.result[3].link)
+                                        var link = `${res.data.result[3].link}.mp3`
                                         var time = moment(t * 1000).format('mm')
                                         var dir = `./media/ytmp3/${time}.mp3`
                                         async function play() {
