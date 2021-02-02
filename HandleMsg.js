@@ -279,7 +279,7 @@ module.exports = HandleMsg = async (client, message) => {
                                 client.reply(from, '[WAIT] Sedang diproses⏳ silakan tunggu ± 1 min!', id)
                                 var filename = `./media/stickergif.${mimetype.split('/')[1]}`
                                 await fs.writeFileSync(filename, mediaData)
-                                sendMp4AsSticker(from, filename, id)
+                                client.sendMp4AsSticker(from, filename, id)
                                 //await exec(`gify ${filename} ./media/stickergf.gif --fps=30 --scale=240:240`, async function (error, stdout, stderr) {
                                 //    var gif = await fs.readFileSync('./media/stickergf.gif', { encoding: 'base64' })
                                 //    await client.sendImageAsSticker(from, `data:image/gif;base64,${gif.toString('base64')}`, stickerMetadata)
