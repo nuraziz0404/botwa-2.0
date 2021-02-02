@@ -12,6 +12,10 @@ debug.log
 #*.data.json
 stored
 media
+*.mp3
+*.mp4
+*.gif
+*.deb
 
 # Workspace files
 *.code-workspace
