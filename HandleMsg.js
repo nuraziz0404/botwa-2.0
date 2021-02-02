@@ -1200,7 +1200,7 @@ module.exports = HandleMsg = async (client, message) => {
                         client.reply(from, 'Success clear all chat!', id)
                         break
                     default:
-                        await client.sendText(from, 'Perintah tidak ada.\n/menu untuk melihat daftar perintah!')
+                        await client.sendText(from, `Perintah tidak ada.\n${prefix}menu untuk melihat daftar perintah!`)
                         break
                 }
 
