@@ -581,12 +581,12 @@ module.exports = HandleMsg = async (client, message) => {
                     case 'ytmp3':
                         if (args.length == 0) return client.reply(from, `Untuk mendownload lagu dari youtube\nketik: ${prefix}ytmp3 [link_yt]`, id)
                         const linkmp3 = args[0].replace('https://youtu.be/', '').replace('https://www.youtube.com/watch?v=', '')
-                        rugaapi.ytmp3(`https://youtu.be/${linkmp3}`)
+                        axios.get(`https://lol-human.herokuapp.com/api/ytaudio/${linkmp3}`)
                             .then(async (res) => {
-                                if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
-                                await client.sendFileFromUrl(from, `${res.getImages}`, '', `Lagu ditemukan\n\nJudul ${res.titleInfo}\n\nSabar lagi dikirim\nJika BOT terlalu lama merespon, silahkan downliad file nya secara manual\nLink mp3: ${res.getAudio}.mp3`, id)
-                                console.log(res.getAudio)
-                                var link = `${res.getAudio}.mp3`
+                                //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
+                                await client.reply(from, `Lagu ditemukan\n\nJudul ${res.data.title}\n\nSabar file sedang dikirim`, id)
+                                var link = `${res.data.result[3].link}.mp3`
+                                console.log(link)
 
                                 var time = moment(t * 1000).format('mm')
                                 var dir = `./media/ytmp3/${time}.mp3`
