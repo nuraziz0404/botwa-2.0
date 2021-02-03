@@ -37,7 +37,8 @@
     "request": "^2.88.2",
     "sastrawijs": "^1.0.3",
     "sharp": "^0.27.1",
-    "pm2": "^4.5.4"
+    "pm2": "^4.5.4",
+    "speedtest-net": "^2.1.1"
   },
   "devDependencies": {
     "eslint-config-standard": "^16.0.1"
