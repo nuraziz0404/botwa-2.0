@@ -619,7 +619,7 @@ module.exports = HandleMsg = async (client, message) => {
                 );
               client.sendFileFromUrl(
                 from,
-                `https://lol-human.herokuapp.com/api/textprome/pornhub/${lpornhub}/${lpornhub2}`
+                `https://lolhuman.herokuapp.com/api/textprome/pornhub/${lpornhub}/${lpornhub2}`
               );
             } else {
               await client.reply(
@@ -1076,7 +1076,7 @@ module.exports = HandleMsg = async (client, message) => {
               .replace("https://youtu.be/", "")
               .replace("https://www.youtube.com/watch?v=", "");
             axios
-              .get(`https://lol-human.herokuapp.com/api/ytaudio/${linkmp3}`)
+              .get(`https://lolhuman.herokuapp.com/api/ytaudio/${linkmp3}`)
               .then(async (res) => {
                 //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
                 await client.reply(
@@ -1124,7 +1124,7 @@ module.exports = HandleMsg = async (client, message) => {
               .replace("https://youtu.be/", "")
               .replace("https://www.youtube.com/watch?v=", "");
             axios
-              .get(`https://lol-human.herokuapp.com/api/ytvideo/${linkmp4}`)
+              .get(`https://lolhuman.herokuapp.com/api/ytvideo/${linkmp4}`)
               .then(async (res) => {
                 //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
                 await client.reply(
@@ -1420,7 +1420,7 @@ module.exports = HandleMsg = async (client, message) => {
                 );
                 axios
                   .get(
-                    `https://lol-human.herokuapp.com/api/ytaudio/${res.data.result[0].id}`
+                    `https://lolhuman.herokuapp.com/api/ytaudio/${res.data.result[0].id}`
                   )
                   .then(async (res) => {
                     //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
