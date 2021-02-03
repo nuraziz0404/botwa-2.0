@@ -140,9 +140,6 @@ module.exports = HandleMsg = async (client, message) => {
         }
 
         // Ini Command nya\
-        if(body == 'hai' || body == '.'){
-            client.reply(from, body, id)
-        }
         if (isCmd) {
             client.simulateTyping(chat.id, true).then(async () => {
 

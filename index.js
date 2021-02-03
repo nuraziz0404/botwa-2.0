@@ -79,7 +79,6 @@ const start = (client = new Client()) => {
                     client.cutMsgCache()
                 }
             })
-
         HandleMsg(client, message)    
     
     })
