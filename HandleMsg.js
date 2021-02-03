@@ -232,11 +232,11 @@ module.exports = HandleMsg = async (client, message) => {
                 var ping = 'Ping: ' + result.ping.latency
                 var dwn = 'Download Speed: ' + Math.round(result.download.bandwidth / 104857) + ' Mbps'
                 var upl = 'Upload Speed: ' + Math.round(result.upload.bandwidth / 104857) + ' Mbps'
+                let tes = `BOT Internet Bandwith:\n${ping}\n${dwn}\n${upl}`
+                client.reply(from, dwn, id)
                 console.log(ping);
                 console.log(dwn);
                 console.log(upl);
-                let tes = `BOT Internet Bandwith:\n${ping}\n${dwn}\n${upl}`
-                client.reply(from, dwn, id)
               } catch (err) {
                 console.log(err.message);
                 client.reply(from, 'Error ngab', id)
