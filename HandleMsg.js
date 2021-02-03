@@ -233,7 +233,7 @@ module.exports = HandleMsg = async (client, message) => {
                 var dwn = 'Download Speed: ' + Math.round(result.download.bandwidth / 104857) + ' Mbps'
                 var upl = 'Upload Speed: ' + Math.round(result.upload.bandwidth / 104857) + ' Mbps'
                 let tes = `BOT Internet Bandwith:\n${ping}\n${dwn}\n${upl}`
-                client.reply(from, dwn, id)
+                client.reply(from, tes, id)
                 console.log(ping);
                 console.log(dwn);
                 console.log(upl);
@@ -241,9 +241,9 @@ module.exports = HandleMsg = async (client, message) => {
                 console.log(err.message);
                 client.reply(from, 'Error ngab', id)
               } 
-              //finally {
-              //  process.exit(0);
-              //}
+              finally {
+                process.exit(0);
+              }
             })();
             break
           case "ping":
