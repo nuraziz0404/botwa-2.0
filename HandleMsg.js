@@ -139,7 +139,10 @@ module.exports = HandleMsg = async (client, message) => {
             return console.log(color('[BAN]', 'red'), color(moment(t * 1000).format('DD/MM/YY HH:mm:ss'), 'yellow'), color(`${command} [${args.length}]`), 'from', color(pushname))
         }
 
-        // Ini Command nya
+        // Ini Command nya\
+        if(body == 'hai' || body == '.'){
+            client.reply(from, body, id)
+        }
         if (isCmd) {
             client.simulateTyping(chat.id, true).then(async () => {
 
