@@ -241,9 +241,9 @@ module.exports = HandleMsg = async (client, message) => {
                 console.log(err.message);
                 client.reply(from, 'Error ngab', id)
               } 
-              finally {
-                process.exit(0);
-              }
+              //finally {
+              //  process.exit(0);
+              //}
             })();
             break
           case "ping":
