@@ -1057,7 +1057,8 @@ module.exports = HandleMsg = async (client, message) => {
                         break
 
                     case 'tagall':
-                    case 'alle':
+                    case 'all':
+                    case 'everyone':
                         if (!isGroupMsg) return client.reply(from, 'Maaf, perintah ini hanya dapat dipakai didalam grup!', id)
                         const groupMem = await client.getGroupMembers(groupId)
                         let res = '╔══✪〘 Mention All 〙✪══\n'
@@ -1068,6 +1069,45 @@ module.exports = HandleMsg = async (client, message) => {
                         res += '╚═〘 *CRazyz BOT* 〙'
                         await client.sendTextWithMentions(from, res)
                         break
+                    
+                        case 'sija':
+                            if (args[0] == 'add') {
+                                for (let i = 1; i < args.length; i++) {
+                                sija.push(args[i].replace(/@/g, ''))
+                                fs.writeFileSync('./settings/sija.json', JSON.stringify(sija))
+                                }
+                                aziz.reply(from, 'Nomor sudah ditambahkan ke daftar kontak SIJA', id)
+                            } else if (args[0] == 'del') {
+                                for (let i = 1; i < args.length; i++) {
+                                    let nixx = sija.indexOf(args[i].replace(/@/g, ''))
+                                    sija.splice(nixx, 1)
+                                    fs.writeFileSync('./settings/sija.json', JSON.stringify(sija))
+                                }
+                                aziz.reply(from, 'Nomor sudah dihapus dari daftar kontak SIJA', id)
+                            }else{
+                                const sija= require('./settings/sija.json')
+                                const groupMem = await aziz.getGroupMembers(groupId)
+                                const member = []
+                                for (let i = 0; i < groupMem.length; i++) {
+                                    member[i] = groupMem[i].id.replace(/@c.us/g, '')
+                                }
+                
+                                let output = sija.filter(x => member.includes(x))
+                                let hehex = args[0]
+                                for (let i = 1; i < args.length; i++) {
+                                    hehex += ` ${args[i]}`
+                                }
+                                hehex += '\n╔══✪〘 Mention SIJA 〙✪══\n'
+                                for (let i = 0; i < output.length; i++) {
+                                    hehex += '╠➥'
+                                    hehex += ` @${output[i]}\n`
+                                }
+                                hehex += '╚═〘 *CR_AZYZ  B O T* 〙'
+                                await aziz.sendTextWithMentions(from, hehex)
+                                
+                                
+                            }
+                            break
 
                     case 'katakasar':
                         if (!isGroupMsg) return client.reply(from, 'Maaf, perintah ini hanya dapat dipakai didalam grup!', id)
