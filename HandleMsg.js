@@ -230,8 +230,8 @@ module.exports = HandleMsg = async (client, message) => {
               try {
                 var result = await speedTest({ acceptLicense: true })
                 var ping = 'Ping: ' + result.ping.latency
-                var dwn = 'Download Speed: ' + Math.round(result.download.bandwidth / 104857) + ' Mbps'
-                var upl = 'Upload Speed: ' + Math.round(result.upload.bandwidth / 104857) + ' Mbps'
+                var dwn = 'Download Speed: ' + Math.round(result.download.bandwidth / 131072) + ' Mbps'
+                var upl = 'Upload Speed: ' + Math.round(result.upload.bandwidth / 131072) + ' Mbps'
                 let tes = `BOT Internet Bandwith:\n${ping}\n${dwn}\n${upl}`
                 client.reply(from, tes, id)
                 console.log(ping);
