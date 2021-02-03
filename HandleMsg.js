@@ -236,13 +236,14 @@ module.exports = HandleMsg = async (client, message) => {
                 console.log(dwn);
                 console.log(upl);
                 let tes = `BOT Internet Bandwith:\n${ping}\n${dwn}\n${upl}`
-                //client.reply(from, dwn, id)
+                client.reply(from, dwn, id)
               } catch (err) {
                 console.log(err.message);
                 client.reply(from, 'Error ngab', id)
-              } finally {
-                process.exit(0);
-              }
+              } 
+              //finally {
+              //  process.exit(0);
+              //}
             })();
             break
           case "ping":
