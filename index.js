@@ -80,6 +80,7 @@ const start = (client = new Client()) => {
                 }
             })
         console.log(message)
+        
         HandleMsg(client, message)    
     
     })
