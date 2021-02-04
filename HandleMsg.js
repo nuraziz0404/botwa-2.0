@@ -401,8 +401,11 @@ module.exports = HandleMsg = async (client, message) => {
             if ((isMedia || isQuotedImage) && args.length === 0) {
               client.reply(from, `Copy that, processing...`, id);
               const encryptMedia = isQuotedImage ? quotedMsg : message;
+              console.log('encryptmedia: ', encryptMedia)
               const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype;
+              console.log('mimetype: ', _mimetype)
               const mediaData = await decryptMedia(encryptMedia, uaOverride);
+              console.log('mediadata: ', mediaData)
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("base64")}`;
               var outFilest = './media/sticker.png'
               await fs.writeFile(outFilest, imageBase64)
