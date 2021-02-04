@@ -1965,6 +1965,7 @@ module.exports = HandleMsg = async (client, message) => {
             break;
 
           case "sija":
+            const sija = JSON.parse(fs.readFileSync('./settings/sija.json'))
             if (args[0] == "add") {
               for (let i = 1; i < args.length; i++) {
                 sija.push(args[i].replace(/@/g, ""));
