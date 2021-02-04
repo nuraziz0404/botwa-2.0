@@ -405,7 +405,7 @@ module.exports = HandleMsg = async (client, message) => {
               const mediaData = await decryptMedia(encryptMedia, uaOverride);
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("binary")}`;
               var outFilest = './media/sticker.png'
-              await writeFile(outFilest, imageBase64, "binary")
+              await fs.writeFile(outFilest, imageBase64, "binary")
               client.sendImageAsSticker(from, outFilest, stickerMetadata)
                 .then(() => {
                   client.sendText(from, "Here's your sticker");
