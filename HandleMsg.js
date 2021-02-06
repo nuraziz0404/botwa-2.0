@@ -399,14 +399,14 @@ module.exports = HandleMsg = async (client, message) => {
           case "sticker":
           case "stiker":
             if ((isMedia || isQuotedImage) && args.length === 0) {
-              client.reply(from, `Copy that, processing...`, id);
+              //client.reply(from, `Copy that, processing...`, id);
               const encryptMedia = isQuotedImage ? quotedMsg : message;
               const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype;
               const mediaData = await decryptMedia(encryptMedia, uaOverride);
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("binary")}`;
-              var outFilest = './media/sticker.png'
-              await fs.writeFile(outFilest, imageBase64, "binary")
-              client.sendImageAsSticker(from, outFilest, stickerMetadata)
+              //var outFilest = './media/sticker.png'
+              //await fs.writeFile(outFilest, imageBase64, "binary")
+              client.sendImageAsSticker(from, imageBase64, stickerMetadata)
                 .then(() => {
                   client.sendText(from, "Here's your sticker");
                   console.log(
