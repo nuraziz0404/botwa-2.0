@@ -403,12 +403,12 @@ module.exports = HandleMsg = async (client, message) => {
               const encryptMedia = isQuotedImage ? quotedMsg : message;
               const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype;
               const mediaData = await decryptMedia(encryptMedia, uaOverride);
-              const getUrl = await uploadImages(mediaData, false);
-              console.log(getUrl);
               //const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("base64")}`;
-              //var outFilest = './media/sticker.png'
-              //await fs.writeFile(outFilest, imageBase64, "binary")
-              client.sendStickerfromUrl(from, getUrl)
+              var outFilest = './media/sticker.png'
+              await fs.writeFile(outFilest, mediaData)
+              const getUrl = await uploadImages(outFilest, false);
+              console.log(getUrl);
+              client.sendImageAsSticker(from, outFilest, stickerMetadata)
                 .then(() => {
                   client.sendText(from, "Here's your sticker");
                   console.log(`Sticker Processed for ${processTime(t, moment())} Second`);
