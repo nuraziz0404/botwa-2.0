@@ -96,14 +96,16 @@ const uploadImages = (buffData, type) => {
     })
 }
 
-const uploadImagesV2 = (buffData, type, filePath) => {
+const uploadImagesV2 = (buffData, type) => {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
             //if (err) return reject(err)
+            const _buffData = type ? await resizeImage(buffData, false) : buffData
+            fs.writeFile(buffData, _buffData, { encoding: 'base64' }, (err) => {
             console.log('Uploading image to telegra.ph server...')
-            const fileData = fs.readFileSync(filePath)
+            const fileData = fs.readFileSync(buffData)
             const form = new FormData()
-            form.append('file', fileData, 'jpg')
+            form.append('file', fileData)
             fetch('https://telegra.ph/upload', {
                 method: 'POST',
                 body: form
@@ -115,6 +117,7 @@ const uploadImagesV2 = (buffData, type, filePath) => {
                 })
                 .then(() => fs.unlinkSync(filePath))
                 .catch(err => reject(err))
+            })
     })
 }
 
