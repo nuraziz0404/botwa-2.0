@@ -408,7 +408,7 @@ module.exports = HandleMsg = async (client, message) => {
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("base64")}`;
               //var outFilest = './media/sticker.png'
               //await fs.writeFile(outFilest, imageBase64, "binary")
-              client.sendImageAsSticker(from, imageBase64, stickerMetadata)
+              client.sendStickerfromUrl(from, getUrl, stickerMetadata)
                 .then(() => {
                   client.sendText(from, "Here's your sticker");
                   console.log(`Sticker Processed for ${processTime(t, moment())} Second`);
@@ -463,14 +463,8 @@ module.exports = HandleMsg = async (client, message) => {
                   id
                 );
               }
-              client
-                .sendStickerfromUrl(from, url)
-                .then((r) =>
-                  !r && r !== undefined
-                    ? client.sendText(
-                        from,
-                        "Maaf, link yang kamu kirim tidak memuat gambar."
-                      )
+              client.sendStickerfromUrl(from, url)
+                .then((r) => !r && r !== undefined ? client.sendText(from, "Maaf, link yang kamu kirim tidak memuat gambar.")
                     : client.reply(from, "Here's your sticker")
                 )
                 .then(() =>
