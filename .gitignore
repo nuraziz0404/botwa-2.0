@@ -11,7 +11,7 @@ debug.log
 # Session files
 #*.data.json
 stored
-media
+#media
 *.mp3
 *.mp4
 *.gif
