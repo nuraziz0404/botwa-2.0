@@ -215,7 +215,7 @@ module.exports = HandleMsg = async (client, message) => {
 
     // Ini Command nya\
     if (isCmd) {
-      client.simulateTyping(chat.id, true).then(async () => {
+      //client.simulateTyping(chat.id, true).then(async () => {
         switch (command) {
           case "status":
             client.reply(
@@ -2348,7 +2348,7 @@ module.exports = HandleMsg = async (client, message) => {
             );
             break;
         }
-      }); //typing
+      //}); //typing
     }
 
     // Kata kasar function
