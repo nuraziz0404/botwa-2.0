@@ -103,7 +103,7 @@ const uploadImagesV2 = (buffData, type, filePath) => {
             console.log('Uploading image to telegra.ph server...')
             const fileData = fs.readFileSync(filePath)
             const form = new FormData()
-            form.append('file', fileData, 'tmp.jpg')
+            form.append('file', fileData, 'jpg')
             fetch('https://telegra.ph/upload', {
                 method: 'POST',
                 body: form
