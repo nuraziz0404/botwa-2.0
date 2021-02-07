@@ -404,7 +404,7 @@ module.exports = HandleMsg = async (client, message) => {
               const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype;
               const mediaData = await decryptMedia(encryptMedia, uaOverride);
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("base64")}`;
-              var outFilest = './media/sticker.png'
+              var outFilest = './media/sticker.jpg'
               await fs.writeFile(outFilest, imageBase64, "base64")
               const getUrl = await uploadImages(outFilest, false);
               console.log(getUrl);
