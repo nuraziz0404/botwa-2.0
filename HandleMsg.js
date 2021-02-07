@@ -40,7 +40,7 @@ const {
 } = require("./utils");
 
 const fs = require("fs-extra");
-const { uploadImages } = require("./utils/fetcher");
+const { uploadImages, uploadImagesV2 } = require("./utils/fetcher");
 
 const setting = JSON.parse(createReadFileSync("./settings/setting.json"));
 const skripsi = JSON.parse(createReadFileSync("./settings/skripsi.json"));
@@ -406,7 +406,7 @@ module.exports = HandleMsg = async (client, message) => {
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("base64")}`;
               var outFilest = './media/sticker.jpg'
               await fs.writeFile(outFilest, imageBase64, "base64")
-              const getUrl = await uploadImages(outFilest, false);
+              const getUrl = await uploadImagesV2(outFilest, false);
               console.log(getUrl);
               client.sendImageAsSticker(from, outFilest, stickerMetadata)
                 .then(() => {
