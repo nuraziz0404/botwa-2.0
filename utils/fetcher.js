@@ -99,7 +99,7 @@ const uploadImages = (buffData, type) => {
 const uploadImagesV2 = (buffData, type, filePath) => {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
-            if (err) return reject(err)
+            //if (err) return reject(err)
             console.log('Uploading image to telegra.ph server...')
             const fileData = fs.readFileSync(filePath)
             const form = new FormData()
