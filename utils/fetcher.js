@@ -99,8 +99,6 @@ const uploadImages = (buffData, type) => {
 const uploadImagesV2 = (buffData, type, filePath) => {
     // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
-        const _buffData = type ? await resizeImage(buffData, false) : buffData
-        fs.writeFile(filePath, _buffData, { encoding: 'base64' }, (err) => {
             if (err) return reject(err)
             console.log('Uploading image to telegra.ph server...')
             const fileData = fs.readFileSync(filePath)
@@ -117,7 +115,6 @@ const uploadImagesV2 = (buffData, type, filePath) => {
                 })
                 .then(() => fs.unlinkSync(filePath))
                 .catch(err => reject(err))
-        })
     })
 }
 
