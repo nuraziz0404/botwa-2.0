@@ -399,19 +399,17 @@ module.exports = HandleMsg = async (client, message) => {
           case "sticker":
           case "stiker":
             if ((isMedia || isQuotedImage) && args.length === 0) {
-              client.reply(from, `Copy that, processing...`, id);
+              //client.reply(from, `Copy that, processing...`, id);
               const encryptMedia = isQuotedImage ? quotedMsg : message;
               const _mimetype = isQuotedImage ? quotedMsg.mimetype : mimetype;
               const mediaData = await decryptMedia(encryptMedia, uaOverride);
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("binary")}`;
-              var outFilest = './media/sticker.png'
-              await fs.writeFile(outFilest, imageBase64, "binary")
-              client.sendImageAsSticker(from, outFilest, stickerMetadata)
+              //var outFilest = './media/sticker.png'
+              //await fs.writeFile(outFilest, imageBase64, "binary")
+              client.sendImageAsSticker(from, imageBase64, stickerMetadata)
                 .then(() => {
                   client.sendText(from, "Here's your sticker");
-                  console.log(
-                    `Sticker Processed for ${processTime(t, moment())} Second`
-                  );
+                  console.log(`Sticker Processed for ${processTime(t, moment())} Second`);
                 });
             } else if (args[0] === "nobg") {
               if (isMedia || isQuotedImage) {
@@ -439,18 +437,11 @@ module.exports = HandleMsg = async (client, message) => {
                   });
                   await fs.writeFile(outFile, result.base64img);
                   await client
-                    .sendImageAsSticker(
-                      from,
-                      `data:${_mimetype};base64,${result.base64img}`,
-                      stickerMetadata
-                    )
+                    .sendImageAsSticker(from, `data:${_mimetype};base64,${result.base64img}`, stickerMetadata)
                     .then(() => {
                       client.sendText(from, "Here's your sticker");
                       console.log(
-                        `Sticker Processed for ${processTime(
-                          t,
-                          moment()
-                        )} Second`
+                        `Sticker Processed for ${processTime(t, moment())} Second`
                       );
                     });
                 } catch (err) {
@@ -618,7 +609,7 @@ module.exports = HandleMsg = async (client, message) => {
                 );
               client.sendFileFromUrl(
                 from,
-                `https://lolhuman.herokuapp.com/api/textprome/pornhub/${lpornhub}/${lpornhub2}`
+                `https://lol-human.herokuapp.com/api/textprome/pornhub/${lpornhub}/${lpornhub2}`
               );
             } else {
               await client.reply(
@@ -1075,7 +1066,7 @@ module.exports = HandleMsg = async (client, message) => {
               .replace("https://youtu.be/", "")
               .replace("https://www.youtube.com/watch?v=", "");
             axios
-              .get(`https://lolhuman.herokuapp.com/api/ytaudio/${linkmp3}`)
+              .get(`https://lol-human.herokuapp.com/api/ytaudio/${linkmp3}`)
               .then(async (res) => {
                 //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
                 await client.reply(
@@ -1123,7 +1114,7 @@ module.exports = HandleMsg = async (client, message) => {
               .replace("https://youtu.be/", "")
               .replace("https://www.youtube.com/watch?v=", "");
             axios
-              .get(`https://lolhuman.herokuapp.com/api/ytvideo/${linkmp4}`)
+              .get(`https://lol-human.herokuapp.com/api/ytvideo/${linkmp4}`)
               .then(async (res) => {
                 //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
                 await client.reply(
@@ -1419,7 +1410,7 @@ module.exports = HandleMsg = async (client, message) => {
                 );
                 axios
                   .get(
-                    `https://lolhuman.herokuapp.com/api/ytaudio/${res.data.result[0].id}`
+                    `https://lol-human.herokuapp.com/api/ytaudio/${res.data.result[0].id}`
                   )
                   .then(async (res) => {
                     //if (res.status == 'error') return client.sendFileFromUrl(from, `${res.link}`, '', `${res.error}`)
