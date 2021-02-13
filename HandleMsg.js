@@ -406,9 +406,15 @@ module.exports = HandleMsg = async (client, message) => {
               const imageBase64 = `data:${_mimetype};base64,${mediaData.toString("base64")}`;
               //var outFilest = './media/sticker.jpg'
               //await fs.writeFile(outFilest, imageBase64, "base64")
+<<<<<<< HEAD
               const getUrl = await uploadImages(imageBase64, false);
               console.log(getUrl);
               client.sendImageAsSticker(from, imageBase64, stickerMetadata)
+=======
+              //const getUrl = await uploadImagesV2(outFilest, false);
+              //console.log(getUrl);
+              client.sendImageAsSticker(from, outFilest, stickerMetadata)
+>>>>>>> parent of 500f06a (upload sticker from local add telegraph)
                 .then(() => {
                   client.sendText(from, "Here's your sticker");
                   console.log(`Sticker Processed for ${processTime(t, moment())} Second`);

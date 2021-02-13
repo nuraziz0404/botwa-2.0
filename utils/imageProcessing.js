@@ -1,4 +1,4 @@
-const sharp = require('lipo')
+const sharp = require('sharp')
 const { fromBuffer } = require('file-type')
 
 /**
