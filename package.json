@@ -17,7 +17,7 @@
   "homepage": "https://github.com/nuraziz0404/botwa-2.0",
   "license": "ISC",
   "dependencies": {
-    "@open-wa/wa-automate": "^3.4.0",
+    "@open-wa/wa-automate": "^3.1.10",
     "app-root-path": "^3.0.0",
     "axios": "^0.21.0",
     "bufferutil": "^4.0.3",
